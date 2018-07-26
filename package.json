@@ -8,9 +8,9 @@
     "start": "node server/server.js"
   },
   "engines": {
-    "node":
+    "node": "10.5.0"
   },
-  "author": "10.5.0",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
