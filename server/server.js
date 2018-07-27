@@ -23,15 +23,10 @@ io.on('connection', (socket) => {
   socket.emit('newMessage', generateMessage('ADMIN', 'Welcome to chat app!'));
   socket.broadcast.emit('newMessage', generateMessage('ADMIN', 'New User joined!'));
 
-  socket.on('createMessage', (data) => {
+  socket.on('createMessage', (data, callback) => {
     console.log('Message created', data);
     io.emit('newMessage', generateMessage(data.from, data.text));
-    //broadcasting emits to all but socket
-    // socket.broadcast.emit('newMessage', {
-    //   from: data.from,
-    //   text: data.text,
-    //   createdAt: new Date().getTime()
-    // });
+    callback('This is from server'); //acknoledgement, calls what the user wants
   });
 
 });
